@@ -43,6 +43,9 @@ public class MainActivity extends Activity implements Drawer{
             pause = !pause;
         }
     };
+    
+    GLSurfaceView glSurf;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +58,12 @@ public class MainActivity extends Activity implements Drawer{
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
-        setContentView(glSurf);
-        
     	File path = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "/animation_sprite");
     	Log.v("downloads_path", path.getAbsolutePath());
+        
+        setContentView(glSurf);
+        
+
     	if(path.exists() && path.isDirectory()) {
             Toast.makeText(MainActivity.this, "SD card images", Toast.LENGTH_SHORT).show();
             resourceIds = new int[] {R.string.animation_sprite};
@@ -71,6 +76,17 @@ public class MainActivity extends Activity implements Drawer{
 
 		
 	}
+	
+    protected void onPause() {
+        super.onPause();
+        glSurf.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        glSurf.onResume();
+    }
 
 	@Override
 	public void onDrawFrame(GL10 gl, SpriteBatcher sb) {
@@ -109,6 +125,8 @@ public class MainActivity extends Activity implements Drawer{
 				else
 					image_num++;
 			}
+			//gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+			//gl.glFlush();
 		}
 		Log.v("FrameTime","Millis between this frame and prev: "+(deltatime));
 		timelast = timenow;
