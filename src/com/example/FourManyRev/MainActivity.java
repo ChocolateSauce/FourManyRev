@@ -20,16 +20,27 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements Drawer{
 
-	Rect img1 = new Rect(0,0,128,128);
-	Rect img2 = new Rect(128,0,256,128);
-	Rect img3 = new Rect(256,0,384,128);
-	Rect img4 = new Rect(384,0,512,128);
-	Rect img5 = new Rect(512,0,640,128);
-	Rect img6 = new Rect(640,0,768,128);
-	Rect img7 = new Rect(768,0,896,128);
-	Rect img8 = new Rect(896,0,1024,128);
-	Rect black = new Rect(0,128,128,256);
-	//Rect black = new Rect(1152,0,1280,128);
+//	Rect img1 = new Rect(0,0,128,228);
+//	Rect img2 = new Rect(128,0,256,228);
+//	Rect img3 = new Rect(256,0,384,228);
+//	Rect img4 = new Rect(384,0,512,228);
+//	Rect img5 = new Rect(512,0,640,228);
+//	Rect img6 = new Rect(640,0,768,228);
+//	//Rect img7 = new Rect(768,0,896,228);
+//	//Rect img8 = new Rect(896,0,1024,228);
+//	Rect black = new Rect(896,0,1024,228);
+//	Rect blue = new Rect(768,0,896,128);
+	
+	Rect img1 = new Rect(0,0,128,228);
+	Rect img2 = new Rect(128,0,256,228);
+	Rect img3 = new Rect(256,0,384,228);
+	Rect img4 = new Rect(384,0,512,228);
+	Rect img5 = new Rect(512,0,640,228);
+	Rect img6 = new Rect(640,0,768,228);
+	//Rect img7 = new Rect(768,0,896,228);
+	//Rect img8 = new Rect(896,0,1024,228);
+	Rect black = new Rect(896,0,1024,228);
+	Rect blue = new Rect(768,0,896,128);
 	
 	float timenow,deltatime,timelast;
 	int image_num = 0;
@@ -43,8 +54,6 @@ public class MainActivity extends Activity implements Drawer{
             pause = !pause;
         }
     };
-    
-    GLSurfaceView glSurf;
 
 	
 	@Override
@@ -68,7 +77,7 @@ public class MainActivity extends Activity implements Drawer{
             Toast.makeText(MainActivity.this, "SD card images", Toast.LENGTH_SHORT).show();
             resourceIds = new int[] {R.string.animation_sprite};
     	} else
-    		resourceIds = new int[] {R.drawable.test_all};
+    		resourceIds = new int[] {R.drawable.sprite6ball};
         
 
         
@@ -76,17 +85,6 @@ public class MainActivity extends Activity implements Drawer{
 
 		
 	}
-	
-    protected void onPause() {
-        super.onPause();
-        glSurf.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        glSurf.onResume();
-    }
 
 	@Override
 	public void onDrawFrame(GL10 gl, SpriteBatcher sb) {
@@ -94,36 +92,37 @@ public class MainActivity extends Activity implements Drawer{
 	    deltatime = timenow-timelast;
 	    if (!pause) {
 			if (image_num == 0) {
-				sb.draw(R.drawable.test_all, img1, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6ball, img1, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
-//			} else if (image_num == 1) {   //7
-//				sb.draw(R.drawable.test_4, img2, new Rect(0, 0,
-//						sb.getViewWidth(), sb.getViewHeight()));
-//				image_num++;
+			} else if (image_num == 1) {   //7
+				sb.draw(R.drawable.sprite6ball, img2, new Rect(0, 0,
+						sb.getViewWidth(), sb.getViewHeight()));
+				image_num++;
 			} else if (image_num == 2) {    //2
-				sb.draw(R.drawable.test_all, img3, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6ball, img3, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
-//			} else if (image_num == 3) {   //9
-//				sb.draw(R.drawable.test_4, img4, new Rect(0, 0,
-//						sb.getViewWidth(), sb.getViewHeight()));
-//				image_num++;
+			} else if (image_num == 3) {   //9
+				sb.draw(R.drawable.sprite6ball, img4, new Rect(0, 0,
+						sb.getViewWidth(), sb.getViewHeight()));
+				image_num++;
 			} else if (image_num == 4) {   //4
-				sb.draw(R.drawable.test_all, img5, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6ball, img5, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
-//			} else if (image_num == 5) {   //11
-//				sb.draw(R.drawable.test_4, img6, new Rect(0, 0,
-//						sb.getViewWidth(), sb.getViewHeight()));
-//				image_num = 0;
-			} else {
-				sb.draw(R.drawable.test_all, black, new Rect(0, 0,
+			} else if (image_num == 5) {   //11
+				sb.draw(R.drawable.sprite6ball, img6, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
+				image_num = 0;
+			} else {
 				if (image_num == 5)
 					image_num = 0;
-				else
+				else {
+					sb.draw(R.drawable.sprite6ball, black, new Rect(0, 0,
+							sb.getViewWidth(), sb.getViewHeight()));
 					image_num++;
+				}
 			}
 			//gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
 			//gl.glFlush();
