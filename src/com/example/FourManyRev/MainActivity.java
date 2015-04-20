@@ -77,7 +77,7 @@ public class MainActivity extends Activity implements Drawer{
             Toast.makeText(MainActivity.this, "SD card images", Toast.LENGTH_SHORT).show();
             resourceIds = new int[] {R.string.animation_sprite};
     	} else
-    		resourceIds = new int[] {R.drawable.sprite6ball};
+    		resourceIds = new int[] {R.drawable.sprite6teapot};
         
 
         
@@ -92,34 +92,34 @@ public class MainActivity extends Activity implements Drawer{
 	    deltatime = timenow-timelast;
 	    if (!pause) {
 			if (image_num == 0) {
-				sb.draw(R.drawable.sprite6ball, img1, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6teapot, img1, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
 			} else if (image_num == 1) {   //7
-				sb.draw(R.drawable.sprite6ball, img2, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6teapot, img2, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
 			} else if (image_num == 2) {    //2
-				sb.draw(R.drawable.sprite6ball, img3, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6teapot, img3, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
 			} else if (image_num == 3) {   //9
-				sb.draw(R.drawable.sprite6ball, img4, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6teapot, img4, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
 			} else if (image_num == 4) {   //4
-				sb.draw(R.drawable.sprite6ball, img5, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6teapot, img5, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num++;
 			} else if (image_num == 5) {   //11
-				sb.draw(R.drawable.sprite6ball, img6, new Rect(0, 0,
+				sb.draw(R.drawable.sprite6teapot, img6, new Rect(0, 0,
 						sb.getViewWidth(), sb.getViewHeight()));
 				image_num = 0;
 			} else {
 				if (image_num == 5)
 					image_num = 0;
 				else {
-					sb.draw(R.drawable.sprite6ball, black, new Rect(0, 0,
+					sb.draw(R.drawable.sprite6teapot, black, new Rect(0, 0,
 							sb.getViewWidth(), sb.getViewHeight()));
 					image_num++;
 				}

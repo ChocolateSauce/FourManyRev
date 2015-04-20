@@ -1,5 +1,5 @@
 <resources>
 
     <string name="app_name">FourManyRev</string>
-	<string name="animation_sprite">/sdcard0/Downloads/animation_sprite/</string>
+	<string name="animation_sprite">/storage/sdcard0/Download/animation_sprite/sprite6teapot</string>
 </resources>
